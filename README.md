@@ -12,8 +12,9 @@ Git profile/account/username/author changer
 ```sh
 git clone git@github.com:juusechec/git-profile.git
 cd git-profile
-sudo cp git-profile /usr/local/bin/git-profile
+sudo cp git-profile.sh /usr/local/bin/git-profile
 # sudo cp git-profile /usr/bin/git-profile
+sudo chmod +x /usr/local/bin/git-profile
 ```
 
 ## Example of use
