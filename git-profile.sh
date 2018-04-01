@@ -7,7 +7,7 @@ if [ ! -f $fileprofiles ]; then
     then
     echo "File $fileprofiles not found!"
     
-    $DEFAULT_PROFILE_NICKNAME="Jorge"
+    DEFAULT_PROFILE_NICKNAME="Jorge"
     echo "Add user nickname: [ $DEFAULT_PROFILE_NICKNAME ]"
     read PROFILE_NICKNAME
     if [ "$PROFILE_NICKNAME" = "" ]
@@ -15,7 +15,7 @@ if [ ! -f $fileprofiles ]; then
     PROFILE_NICKNAME="$DEFAULT_PROFILE_NICKNAME"
     fi
     
-    $DEFAULT_PROFILE_FULLNAME="Jorge Ulises Useche Cuellar"
+    DEFAULT_PROFILE_FULLNAME="Jorge Ulises Useche Cuellar"
     echo "Add user fullname: [ $DEFAULT_PROFILE_FULLNAME ]"
     read PROFILE_FULLNAME
     if [ "$PROFILE_FULLNAME" = "" ]
@@ -23,7 +23,7 @@ if [ ! -f $fileprofiles ]; then
     PROFILE_FULLNAME="$DEFAULT_PROFILE_FULLNAME"
     fi
     
-    $DEFAULT_PROFILE_EMAIL="naturalmentejorge@gmail.com"
+    DEFAULT_PROFILE_EMAIL="naturalmentejorge@gmail.com"
     echo "Add user git email: [ $DEFAULT_PROFILE_EMAIL ]"
     read PROFILE_EMAIL
     if [ "$PROFILE_EMAIL" = "" ]
@@ -31,11 +31,11 @@ if [ ! -f $fileprofiles ]; then
     PROFILE_EMAIL="$DEFAULT_PROFILE_EMAIL"
     fi
     
-    tee "$file" << EOF
+    tee "$fileprofiles" << EOF
 # put dot comma separated values @see https://github.com/juusechec/git-profile/blob/master/profiles.lst
 $PROFILE_NICKNAME;$PROFILE_FULLNAME;$PROFILE_EMAIL
 EOF
-    echo "Modificated $fileprofiles."
+    echo "Modificated $fileprofiles"
     fi
 fi
 
