@@ -1,3 +1,15 @@
+You can add a new user to /home/jorge/profiles.lst, Ctrl+C to Cancel
+
+Current registered users:
+
+jorge
+andres
+
+Please, add data for new git user
+
+Add user nickname: [ Jorge ]
+^C
+jorge@ulises:~/workspace/Asistente-LADM_COL 1726 $ cat /usr/local/bin/git-profile
 #!/bin/bash
 
 function addNew {
@@ -37,6 +49,18 @@ EOF
   echo "Modificated $fileprofiles"
 }
 
+function showProfiles {
+  while IFS='' read -r line || [[ -n "$line" ]]; do
+    if [[ ! "$line" == "#"* ]]
+    then
+      #echo "Text read from file: $line"
+      profile=$(echo $line | tr ";" "\n")
+      nickname=$(echo "$profile" | head -1)
+      echo "$nickname"
+    fi
+  done < "$fileprofiles"
+}
+
 fileprofiles="profiles.lst"
 if [ ! -f $fileprofiles ]
 then
@@ -52,8 +76,8 @@ fi
 if [ "$1" == "" ]
 then
   echo "You can add a new user to $fileprofiles, Ctrl+C to Cancel"
-  printf "\nCurrent value:\n\n"
-  cat $fileprofiles
+  printf "\nCurrent registered users:\n\n"
+  showProfiles
   printf "\nPlease, add data for new git user\n\n"
   addNew
   exit
