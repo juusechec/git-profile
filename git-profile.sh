@@ -1,15 +1,3 @@
-You can add a new user to /home/jorge/profiles.lst, Ctrl+C to Cancel
-
-Current registered users:
-
-jorge
-andres
-
-Please, add data for new git user
-
-Add user nickname: [ Jorge ]
-^C
-jorge@ulises:~/workspace/Asistente-LADM_COL 1726 $ cat /usr/local/bin/git-profile
 #!/bin/bash
 
 function addNew {
