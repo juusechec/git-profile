@@ -82,6 +82,7 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
       echo "I'm $fullname, but I like to be called $nickname. Send me and email to: $email"
       git config --local user.name "$fullname"
       git config --local user.email "$email"
+      git config --local commit.gpgSign false
       echo "Your git is ready to commit!"
       break
     fi
